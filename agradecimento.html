@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agradecimento - Portal Filmes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body { min-height: 100vh; margin: 0; background: linear-gradient(180deg, #002a6f 0%, #000000 100%); color: #fff; font-family: Arial, Helvetica, sans-serif; }
+        .card-custom { background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.08); color:#fff; }
+        .brand { color: #ffffff; letter-spacing: 1px; }
+        .value { color: #dbe9ff; font-weight:600; }
+    </style>
+
+</head>
+<body>
+    <div class="container vh-100 d-flex align-items-center justify-content-center">
+        <div class="card card-custom p-4 shadow" style="max-width:700px; width:100%;">
+            <h2 class="text-center brand mb-2">Obrigado!</h2>
+            <p class="text-center small mb-4">Recebi sua resposta. Abaixo estão os dados enviados.</p>
+
+            <div id="resultado">
+                <ul class="list-group list-group-flush mb-3">
+                    <li class="list-group-item bg-transparent border-top-0">Nome: <span class="value" id="rNome">-</span></li>
+                    <li class="list-group-item bg-transparent">Título: <span class="value" id="rTitulo">-</span></li>
+                    <li class="list-group-item bg-transparent">Gênero: <span class="value" id="rGenero">-</span></li>
+                    <li class="list-group-item bg-transparent">Ano: <span class="value" id="rAno">-</span></li>
+                    <li class="list-group-item bg-transparent">Avaliação: <span class="value" id="rNota">-</span></li>
+                    <li class="list-group-item bg-transparent">Duração: <span class="value" id="rDuracao">-</span></li>
+                    <li class="list-group-item bg-transparent">Comentário: <span class="value" id="rComentario">-</span></li>
+                </ul>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a href="login.html" class="btn btn-outline-light">Logout</a>
+                <a href="formulario.html" class="btn btn-primary">Voltar ao formulário</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ler query string simples e exibir
+        const params = new URLSearchParams(window.location.search);
+        function setText(id, key) { const v = params.get(key); if (v) document.getElementById(id).textContent = decodeURIComponent(v); }
+        setText('rNome','nome');
+        setText('rTitulo','titulo');
+        setText('rGenero','genero');
+        setText('rAno','ano');
+        setText('rNota','nota');
+        setText('rDuracao','duracao');
+        setText('rComentario','comentario');
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
